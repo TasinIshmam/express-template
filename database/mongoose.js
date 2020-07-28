@@ -1,8 +1,13 @@
 let mongoose = require('mongoose');
-const logger = require('../utils/logger')
+const logger = require('../services/logger');
+const config = require('../loaders/config');
+
+//loader class for mongoDB.
+//initializes mongodb and exports connection.
+
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect( config.mongodbURI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

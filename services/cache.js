@@ -1,5 +1,5 @@
 const NodeCache = require('node-cache');
-const my_cache = new NodeCache({deleteOnExpire:true, useClones:true});
+const myCache = new NodeCache({deleteOnExpire:true, useClones:true});
 
 
 /**
@@ -7,9 +7,9 @@ const my_cache = new NodeCache({deleteOnExpire:true, useClones:true});
  * @param key - a key that will be used to search the cache
  * @returns {{data: null, status: boolean}|{data: (null|JSON), status: boolean}} 
  */
-function get_cached_data(key) {
+function getCachedData(key) {
     try {
-        let data = my_cache.get(key);
+        let data = myCache.get(key);
 
         return {
             status: (!(data === undefined || data === null)),
@@ -30,9 +30,9 @@ function get_cached_data(key) {
  * @param val - the value to be set against the key
  * @returns {{status: boolean}}
  */
-function set_cache(key, val) {
+function setCache(key, val) {
     try {
-        my_cache.set(key, val);
+        myCache.set(key, val);
         return {
             status: true
         }
@@ -51,9 +51,9 @@ function set_cache(key, val) {
  * @returns {{status: boolean}}
  */
 
-function set_cache_with_exp(key, val, exp) {
+function setCacheWithExpiration(key, val, exp) {
     try {
-        my_cache.set(key, val, exp);
+        myCache.set(key, val, exp);
         return {
             status: true
         }
@@ -64,4 +64,4 @@ function set_cache_with_exp(key, val, exp) {
     }
 }
 
-module.exports = {get_cached_data, set_cache, set_cache_with_exp};
+module.exports = {getCachedData, setCache, setCacheWithExpiration};

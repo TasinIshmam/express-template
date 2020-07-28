@@ -1,6 +1,7 @@
 const winston = require('winston');
 const {transports, format} = winston;
 const split = require('split');
+const config = require('../loaders/config');
 
 
 const print = format.printf((info) => {
@@ -11,7 +12,7 @@ const print = format.printf((info) => {
         : log;
 });
 
-let logLevelConsole = process.env.NODE_ENV === "production" ? "info" : 'debug';
+let logLevelConsole = config.logLevel;
 
 const logger = winston.createLogger({
     level: logLevelConsole,
@@ -27,7 +28,8 @@ logger.stream = split().on('data', function (line) {
 });
 
 
-// testing format of error. Check this before fucking around with the morgan config :'3
+
+// testing format of error. Check this before fucking around with the morgan loaders :'3
 // const error = new Error('Testing Error');
 // logger.error(error);
 // logger.error('An error occurred:', error);

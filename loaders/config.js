@@ -1,5 +1,9 @@
 
+//add configuration files
 //initialize environment variables
+//try to use the export from this file instead of touching process.env directly.
+
+
 const env = process.env.NODE_ENV || 'development';
 
 if (env === 'development') {
@@ -7,10 +11,13 @@ if (env === 'development') {
     process.env.NODE_ENV = 'development';
 }
 
-//initialize logger
-require('../utils/logger');
 
-//initialize database
-require('../database/mongoose');
+module.exports = {
+    mongodbURI : process.env.MONGODB_URI,
+    port: process.env.PORT,
+    logLevel: process.env.LOG_LEVEL || "info",
+};
+
+
 
 

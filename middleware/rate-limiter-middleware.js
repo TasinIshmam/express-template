@@ -1,6 +1,6 @@
 
 const {RateLimiterMemory} = require('rate-limiter-flexible');
-const logger = require('../utils/logger');
+const logger = require('../services/logger');
 
 
 const opts = {

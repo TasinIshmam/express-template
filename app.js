@@ -1,6 +1,9 @@
 
-//initialize
-require('./config/initialize');
+//initialize env variables, database and loaders.
+const config = require('./loaders/config');
+
+//load database
+const mongoose = require('./database/mongoose');
 
 let createError = require('http-errors');
 let express = require('express');
@@ -12,8 +15,8 @@ const helmet = require('helmet');
 //local imports
 let indexRouter = require('./routes/index');
 let apiRouter = require('./routes/api');
-let limiter = require('./middleware/rate_limit_middleware');
-const logger = require('./utils/logger');
+let limiter = require('./middleware/rate-limiter-middleware');
+const logger = require('./services/logger');
 
 //express
 let app = express();
