@@ -2,6 +2,15 @@
 
 A template for medium sized express applications. Somewhat opinionated. 
 
+### Stack
+
+- MongoDB as Database
+- EJS for Server Side Rendering
+- Winston for Logging
+- In memory cache (Change appropriately in production)
+- In memory rate limiter (Change appropriately in production)
+- 
+
 
 ### Style Guide
 
