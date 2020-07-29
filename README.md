@@ -22,12 +22,6 @@ A template for medium sized express applications. Somewhat opinionated.
 
 ### Conventions
 
-- When exporting, package into an object. 
-```javascript
-
-module.exports = {objectToExport}; // Correct
-module.exports = objectToExport // Wrong
-```
 - Store tests next to the code
 
 
@@ -40,6 +34,7 @@ module.exports = objectToExport // Wrong
     * logger.info for generic maintenance logs
     * logger.debug for debugging (won't show up in production logs)
     * Optionally, logger.warn for something between error and info. 
+* [Read More](https://www.twilio.com/blog/guide-node-js-logging)
     
     
 ### Thoughts on scaling
