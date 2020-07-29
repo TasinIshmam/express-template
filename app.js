@@ -3,7 +3,7 @@
 const config = require('./loaders/config');
 
 //load database
-const mongoose = require('./database/mongoose');
+require('./database/mongoose');
 
 let createError = require('http-errors');
 let express = require('express');

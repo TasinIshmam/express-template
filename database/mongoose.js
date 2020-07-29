@@ -11,10 +11,10 @@ mongoose.connect( config.mongodbURI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
-    autoIndex: false
+    autoIndex: false   //Mongoose no longer automatically creates indices. You have to do it manually.
 }).then(() => logger.info("You are connected to the database"))
     .catch((err) => {
         logger.error(err)
     });
 
-module.exports = {mongoose};
+module.exports = mongoose;
