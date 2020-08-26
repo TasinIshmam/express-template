@@ -14,9 +14,10 @@ A template for medium sized express applications. Somewhat opinionated.
 
 ### Style Guide
 
-- lowerCamelCase for variables/objects
+- lowerCamelCase for variables/objects (lowerCamelCase should be the default pretty much everything)
 - UpperCamelCase for class names
 - kebab-case for file names 
+- lowerCamelCase for mongodb collections, fields, models
 - Reference: [Style Guide for NodeJS](https://github.com/felixge/node-style-guide)
 
 
@@ -34,7 +35,7 @@ A template for medium sized express applications. Somewhat opinionated.
     * logger.info for generic maintenance logs
     * logger.debug for debugging (won't show up in production logs)
     * Optionally, logger.warn for something between error and info. 
-* [Read More](https://www.twilio.com/blog/guide-node-js-logging)
+* [Read More about logging](https://www.twilio.com/blog/guide-node-js-logging)
     
     
 ### Thoughts on scaling
