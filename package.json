@@ -25,6 +25,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "eslint": "^5.16.0"
   },

@@ -2,8 +2,8 @@
 //initialize env variables, database and loaders.
 const config = require('./loaders/config');
 
-//load database
-require('./database/mongoose');
+// load database
+// require('./database/mongoose');
 
 let createError = require('http-errors');
 let express = require('express');
@@ -26,16 +26,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //middleware
-app.use(limiter.rateLimiterMiddlewareInMemory);
 app.use(morgan('tiny', { stream: logger.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(helmet())
 //routers
 app.use('/', indexRouter);
-app.use('/api', apiRouter);
+app.use('/api', limiter.rateLimiterMiddlewareInMemory, apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
